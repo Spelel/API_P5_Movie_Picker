@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 10rem 6rem 10rem;
+    border: 1px solid black;
+    background-image: url(images/dark-vip-cinema-studio-still-life.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
