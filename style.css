@@ -17,37 +17,88 @@ header {
 }
 
 .sOne {
-    width: 75%;
-    margin: auto;
-    position: absolute;
-    top: 19%;
-    right: 10%;
+    width: 85%;
+    margin: 1.25rem auto 3.5rem auto;
     display: flex;
-}
-
-.btnS {
-    width: 45%;
-    font-size: 1.25rem;
-    padding: 0.5rem;
-}
-
-input[type=text] {
-    width: 32rem;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    padding: 12px 20px 12px 40px;
-  }
-
-  img {
-    width: 25%;
-    opacity: 85%;
-    margin-top: 15rem;
-  }
-
-  .sTwo {
-    display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.sOne input, button {
+  border: 2px solid gainsboro;
+}
+
+input:focus {
+  border: 1px solid black;
+  outline: none;
+}
+
+.sOne input {
+  width: 90%;
+  padding: 1rem 5rem 1rem 1.25rem;
+  border-radius: 10px;
+}
+
+.sOne button {
+  background-color: whitesmoke;
+  height: 100%;
+  width: 25%;
+  padding: 1rem 0;
+}
+
+.movie_plaeholder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+    max-width: 25%;
+    min-width: 24%;
+    /* max-height: 35%; */
+    margin: auto 1.5rem auto 0;
+  }
+
+.movie_titleAndRate {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+  }
+
+.movie_text, .movie_title {
+  font-size: 2rem;
+  word-break: keep-all;
+}
+
+.movie_title {
+  margin-right: 2rem;
+}
+
+/* img, .sTwo, .movie, .movie_title, .movie_info, .movie_text {
+  border: 1px solid black;
+} */
+
+.sTwo {
+  display: flex;
+  width: 75%;
+  align-items: center;
+  }
+
+.movie_info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.45rem;
+    width: 75%;
+  }
+
+.movie {
+  width: 100%;
+}
+
+.end_of_section {
+    border-bottom: 2px solid #393333;
+    margin: 25px auto 25px auto;
+    width: 75%;
+    opacity: 35%;
   }
