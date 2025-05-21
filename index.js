@@ -3,6 +3,7 @@
 const btnSearch = document.getElementById("btnSearch")
 const txtInput = document.getElementById("textInput")
 const sTwo = document.getElementById("movieInfo")
+const imgGone = document.getElementById("img-gone")
 
 let movieTitleArray = []
 // let movieBodyArray = []
@@ -14,7 +15,7 @@ function getMovie() {
     } else {
         movieTitleRequest()
     }
-    // txtInput.value = ''
+    txtInput.value = ''
 }
 
 
@@ -24,7 +25,7 @@ function movieTitleRequest() {
     .then(data => {
         // console.log(data)
         let movieTitles = data.Search.map(movie => movie.Title)
-        console.log(movieTitles)
+        // console.log(movieTitles)
         
         movieTitleArray = movieTitles
 
@@ -41,7 +42,7 @@ function movieBody() {
 
                 let movieBodyArray = []
                 movieBodyArray.push(data2)
-                console.log(movieBodyArray)
+                // console.log(movieBodyArray)
 
 
                 movieBodyArray.forEach(unit => {
@@ -73,10 +74,11 @@ function movieBody() {
 }
 
 btnSearch.addEventListener("click", () => {
-    getMovie()
+        sTwo.innerHTML = ``
+        getMovie()
+        imgGone.style.display = "none"
+    
 })
-
-
 
 
 

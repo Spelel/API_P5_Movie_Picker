@@ -102,3 +102,8 @@ img {
     width: 75%;
     opacity: 35%;
   }
+
+.img_gone {
+  opacity: 75%;
+  margin-top: 5rem;
+}
