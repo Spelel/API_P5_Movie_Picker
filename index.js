@@ -5,7 +5,7 @@ const txtInput = document.getElementById("textInput")
 const sTwo = document.getElementById("movieInfo")
 
 let movieTitleArray = []
-let movieBodyArray = []
+// let movieBodyArray = []
 
 function getMovie() {
 
@@ -23,58 +23,54 @@ function movieTitleRequest() {
     .then(res => res.json())
     .then(data => {
         // console.log(data)
-        let movieTitles = data.Search
+        let movieTitles = data.Search.map(movie => movie.Title)
         console.log(movieTitles)
-        movieTitles.forEach(movie => {
-            movieTitleArray.push(`${movie.Title}`)
-        })
-        console.log(movieTitleArray)
+        
+        movieTitleArray = movieTitles
+
         movieBody()
     })
 }
 
-
 function movieBody() {
-    movieTitleArray.forEach(title => {
+    movieTitleArray.map(title => {
         fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=e802e6a9&t=${title}`)
             .then(res => res.json())
             .then(data2 => {
-                console.log(data2)
-                // htmlRender()
-                // let movieB = data2
+                // console.log(data2) 
+
+                let movieBodyArray = []
+                movieBodyArray.push(data2)
+                console.log(movieBodyArray)
 
 
-
+                movieBodyArray.forEach(unit => {
+                    sTwo.innerHTML +=`
+                <div class="sTwo">
+                    <img src="${unit.Poster}">
+                    <div class="movie">
+                        <div class="movie_titleAndRate" >
+                            <p class="movie_title" >${unit.Title}</p>
+                            <p class="mRate" >⭐ ${unit.imdbRating}</p>
+                        </div>
+                        <div class="movie_info" >
+                            <p>${unit.Runtime}</p>
+                            <p>${unit.Genre}</p>
+                            <p>watchlist</p>
+                        </div>
+                        <div>
+                            <p class="movie_text">${unit.Plot}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="end_of_section"></div>
+                    `
+                })
+                movieBodyArray = []
                 
             })
     })
 }
-
-function htmlRender() {
-    movieBodyArray.forEach(unit => {
-        sTwo.innerHTML +=`
-    <div class="sTwo">
-        <img src="${unit.Poster}">
-        <div class="movie">
-            <div class="movie_titleAndRate" >
-                <p class="movie_title" >${unit.Title}</p>
-                <p class="mRate" >⭐ ${unit.imdbRating}</p>
-            </div>
-            <div class="movie_info" >
-                <p>${unit.Runtime}</p>
-                <p>${unit.Genre}</p>
-                <p>watchlist</p>
-            </div>
-            <div>
-                <p class="movie_text">${unit.Plot}</p>
-            </div>
-        </div>
-    </div>
-    <div class="end_of_section"></div>
-        `
-    })
-}
-
 
 btnSearch.addEventListener("click", () => {
     getMovie()
@@ -88,36 +84,3 @@ btnSearch.addEventListener("click", () => {
 
 
 
-
-
-
-
-
-// fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=e802e6a9&t=${item.Title})}`)
-//                         .then(resposne => resposne.json())
-//                         .then(data2 => {
-//                             console.log(data2)
-
-                        
-                        // document.getElementById("movieInfo").innerHTML =`
-                        // <div class="sTwo">
-                        //     <img src="${data2.Poster}">
-                        //     <div class="movie">
-                        //         <div class="movie_titleAndRate" >
-                        //             <p class="movie_title" >${data2.Title}</p>
-                        //             <p class="mRate" >⭐ ${data2.imdbRating}</p>
-                        //         </div>
-                        //         <div class="movie_info" >
-                        //             <p>${data2.Runtime}</p>
-                        //             <p>${data2.Genre}</p>
-                        //             <p>watchlist</p>
-                        //         </div>
-                        //         <div>
-                        //             <p class="movie_text">${data2.Plot}</p>
-                        //         </div>
-                        //     </div>
-                        // </div>
-                        // <div class="end_of_section"></div>
-                        //     `
-                           
-//                         })
