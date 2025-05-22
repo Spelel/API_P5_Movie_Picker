@@ -8,12 +8,26 @@ header {
     justify-content: space-between;
     padding: 4rem 10rem 4rem 10rem;
     border: 1px solid black;
-    background-image: url(images/dark-vip-cinema-studio-still-life.jpg);
+    background-image: url(../images/dark-vip-cinema-studio-still-life.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
     color: whitesmoke;
     text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h3 a {
+  color: whitesmoke;
+}
+
+h3 a:hover {
+  border-bottom: 1px solid whitesmoke;
+  padding: 0.2rem 0 0.2rem 0.2rem;
 }
 
 .sOne {
@@ -89,7 +103,7 @@ img {
     display: flex;
     justify-content: space-between;
     font-size: 1.45rem;
-    width: 75%;
+    width: 80%;
   }
 
 .movie {
@@ -106,4 +120,12 @@ img {
 .img_gone {
   opacity: 75%;
   margin-top: 5rem;
+}
+
+.movie_plaeholder img {
+  width: 1.5rem;
+}
+
+.watchList:hover {
+  border-bottom: 1px solid black;
 }
