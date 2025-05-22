@@ -15,6 +15,7 @@ header {
     overflow: hidden;
     color: whitesmoke;
     text-transform: uppercase;
+    margin-bottom: 3rem;
 }
 
 h4 {
@@ -30,3 +31,61 @@ a:hover {
     border-bottom: 1px solid whitesmoke;
     padding: 0.2rem;
 }
+
+.movie_plaeholder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+img {
+    max-width: 45%;
+    min-width: 24%;
+    /* max-height: 35%; */
+    margin: auto 1.5rem auto 0;
+  }
+
+.movie_titleAndRate {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+  }
+
+.movie_text, .movie_title {
+  font-size: 2rem;
+  word-break: keep-all;
+}
+
+.movie_title {
+  margin-right: 2rem;
+}
+
+.sTwo {
+  display: flex;
+  width: 75%;
+  align-items: center;
+  }
+
+.movie_info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.45rem;
+    width: 80%;
+  }
+
+.movie {
+  width: 100%;
+}
+
+.end_of_section {
+    border-bottom: 2px solid #393333;
+    margin: 25px auto 25px auto;
+    width: 75%;
+    opacity: 35%;
+  }
+
+  .watchList {
+    display: flex;
+    justify-content: center;
+  }

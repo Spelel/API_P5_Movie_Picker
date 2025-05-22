@@ -51,12 +51,15 @@ async function movieBody() {
           rating: data2.imdbRating,
           runtime: data2.Runtime,
           genre: data2.Genre,
-          plot: data2.Plot
+          plot: data2.Plot,
         }))
     );
   
     movieBodyA = await Promise.all(fetches);
-    console.log(movieBodyA);
+    movieBodyA.forEach((item, i) => {
+        item.id = i + 1
+    })
+    console.log(movieBodyA)
     render()
 }
   
@@ -75,7 +78,7 @@ function render() {
             <div class="movie_info" >
                 <p>${unit.runtime}</p>
                 <p>${unit.genre}</p>
-                <p class="watchList" id="add-watch">watchlist ➕</p>
+                <p class="watchList" id="${unit.id}">watchlist ➕</p>
             </div>
             <div>
                 <p class="movie_text">${unit.plot}</p>
@@ -91,20 +94,23 @@ function render() {
 
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains("watchList")) {
-        // localStorage.setItem("title", JSON.stringify(movieBodyArray))
-        // let t = localStorage.getItem('title')
-        // console.log(JSON.parse(t))
-        movieBodyA = []
-        console.log(movieBodyA)
+        addBtn(e.target.id)
+        // console.log(e.target.id)
     }
 })
 
-// addWatchlistItem.addEventListener("click", () => {
-//     localStorage.setItem("title", JSON.stringify(movieBodyArray))
-//         let t = localStorage.getItem('title')
-//         console.log(JSON.parse(t))
-// })
+let storedMoviesArray = []
 
+function addBtn(itemId) {
+    const selectedItem = movieBodyA.find(item => item.id === parseInt(itemId));
+
+    if (selectedItem) {
+        storedMoviesArray.push(selectedItem)
+        localStorage.setItem("movie", JSON.stringify(storedMoviesArray))
+        let t = localStorage.getItem("movie")
+        console.log(JSON.parse(t))
+    }
+}
 
 
 
