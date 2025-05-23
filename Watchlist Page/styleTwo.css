@@ -85,7 +85,12 @@ img {
     opacity: 35%;
   }
 
-  .watchList {
+.watchList {
     display: flex;
     justify-content: center;
+  }
+
+.watchList:hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
   }

@@ -1,9 +1,14 @@
 let mArray = []
+
 movieListFromLS()
 function movieListFromLS() {
     let movies = localStorage.getItem("movie")
     mArray = JSON.parse(movies)
     console.log(mArray)
+
+    mArray.forEach((item, i) => {
+        item.idL = i + 1
+    })
     render()
 }
 
@@ -20,7 +25,7 @@ function render() {
                 <div class="movie_info" >
                     <p>${unit.runtime}</p>
                     <p>${unit.genre}</p>
-                    <p class="watchList" id="${unit.id}">➖</p>
+                    <p class="watchList" id="${unit.idL}">➖</p>
                 </div>
                 <div>
                     <p class="movie_text">${unit.plot}</p>
@@ -31,3 +36,10 @@ function render() {
             `
     })
 }
+
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains("watchList")) {
+        console.log(e.target.idL)
+    }
+})
